@@ -1,0 +1,407 @@
+# Quasaria SEP-1 stellar.toml. TESTNET ONLY. Nothing listed here has any monetary value.
+# Generated from deployments/testnet.json and deployments/testnet-assets.json (public IDs only).
+VERSION = "2.7.0"
+NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
+HORIZON_URL = "https://horizon-testnet.stellar.org"
+ACCOUNTS = [
+  "GDAEZGA66NUQZKMHFMIUI42S6FKGFERY3UHANE43ZM3RGL3FB3VBNKCY",
+  "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO",
+  "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV",
+]
+
+# Soroban contracts (testnet, unaudited):
+#   xlmSac       CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC
+#   qusdSac      CD4BXA4OL37HBNWDLTBYQK32HEHUZPMVV4F272F7YKOZM2MIB5HDNLUZ
+#   referral     CCLJVQ3MOWHELK4NGKDAQSKOLPXIECADTGIVQVSSSKLRJ7JOSXOZ2WCB
+#   qfx          CDL5JSVI4O4HGUCITMOBBKAMHNAUY6OE4K54A5DJY2PTXSHFJG5XKJ4D
+#   poolXlmQusd  CBBUQW2VGV5ZH2NPLSVZF5BQM7PPKAWTKDZVK2AVO4DV4KYIS7FSXHB5
+#   poolQfxQusd  CBPJ5AXOBTN37PALD62OVPHIJ3BLCFX6XLSCMS3ICX6F6GUVNNM4WFLK
+#   router       CDSGPKLVVSCZDXPI2NNZRYY23UCQS3TXQWBCFIKINFIBJDCD57TQRWFB
+#   staking      CBB6WT3KRJDNKKJPDKLPEPVCZC63DYPVBRXCR72HPTL6PQL54P7VB63K
+#   oracle       CBHMDDCD5NDZKQIGP4VKBTQOQ4OQMK75CYAGHBXY2JT7WGBB774NO2DY
+#   vault        CAKUVSFDQXQGGBO2ZYQEQH6HMRMMDV6DDF4HMGRKK4Y3O2TGFWDAM55V
+#   plus 52 v3 AMM pool contracts listed in deployments/testnet-assets.json of the Quasaria repo
+
+[DOCUMENTATION]
+ORG_NAME = "Quasaria"
+ORG_URL = "https://yogibear1323.github.io/quasaria/"
+ORG_DESCRIPTION = "Quasaria is an experimental decentralized exchange on the Stellar TESTNET (Soroban AMM pools, router, staking, vault). Testnet only; contracts are unaudited; tokens have no value."
+ORG_GITHUB = "yogibear1323"
+
+[[CURRENCIES]]
+code = "QFX"
+contract = "CDL5JSVI4O4HGUCITMOBBKAMHNAUY6OE4K54A5DJY2PTXSHFJG5XKJ4D"
+status = "test"
+display_decimals = 7
+name = "Quasaria QFX (testnet)"
+desc = "Quasaria testnet Soroban token backed 1:1 by testnet XLM (1 QFX = 1 XLM). Testnet only, unaudited, no value."
+is_asset_anchored = false
+
+[[CURRENCIES]]
+code = "QUSD"
+issuer = "GDAEZGA66NUQZKMHFMIUI42S6FKGFERY3UHANE43ZM3RGL3FB3VBNKCY"
+contract = "CD4BXA4OL37HBNWDLTBYQK32HEHUZPMVV4F272F7YKOZM2MIB5HDNLUZ"
+status = "test"
+display_decimals = 7
+name = "Quasaria demo USD (testnet)"
+desc = "Quasaria testnet demo dollar. No mainnet equivalent, not redeemable, no value."
+
+[[CURRENCIES]]
+code = "mkEURC"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CABYRSHVCLKKGYAEJEPEX47CC47RA54YNANJV4LGRCL7C6DUPW63TNRX"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of EURC"
+desc = "Testnet mirror of EURC, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkPYUSD"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CDBU2AQQNNQGAR4KGMSNABEKMSJV6Y2DM5PPEGB3RR3VBEJXBCEVNZLJ"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of PYUSD"
+desc = "Testnet mirror of PYUSD, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkUSDGLO"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CARQD2SZV34W5NQDBT454SVDMTL4HPBCZY4MMWDE5Q3RHNQYDPUTEAWC"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of USDGLO"
+desc = "Testnet mirror of USDGLO, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkEURCV"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CC3R5F6RTRFZB5OZJLV6DO6NZGHVFM2PJDNO36V3AW26TO22BENQAJFR"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of EURCV"
+desc = "Testnet mirror of EURCV, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkUSDT0"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CCQLHWJ2UK4K3IQFQKLEDGSK3372L6W7IUUMFTILXTFA7SG6ZH7CF4TX"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of USDT0"
+desc = "Testnet mirror of USDT0, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkGYEN"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CDDJVZBNTZHKDD3QQAEVUMT6PF5KBSARDAW42WQC54ON77JW6VGYEVZ6"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of GYEN"
+desc = "Testnet mirror of GYEN, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkZUSD"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CAQ22H6GFEKG2YQH73QJXJGASJR4YIZHE4G7BUEBJXGR2Q4UH4XHUNGF"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of ZUSD"
+desc = "Testnet mirror of ZUSD, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkAUDD"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CBMNT2CNEVUPKTXLRXKNTXNAA2674M5C5WYH4VYLDCVJM5TLPVMPY6BQ"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of AUDD"
+desc = "Testnet mirror of AUDD, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkVCHF"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CA5IAMPXTIH23OWOJWZAF6ZV6YMEFJASITOWNKSGNZPY6CFKIWXKICUU"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of VCHF"
+desc = "Testnet mirror of VCHF, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkUSDx"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CC2Z7JO6WQU47MKSFAM5BHSZL5RHH2SB4UDFWGW2MCTBLL3IHDLKXR4I"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of USDx"
+desc = "Testnet mirror of USDx, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkUSD"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CC22PPH4DPUZZMONNPETGTCBGQZ52M63MVWSUUQ7M4CD6SVFRF47TILH"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of USD"
+desc = "Testnet mirror of USD, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkARST"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CBL4UOALXYKSU6EYB7AUCOC763EPFFPEJDNYQPRM4I45547WWDXDT74H"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of ARST"
+desc = "Testnet mirror of ARST, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkARS"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CD7H23GTDKSRTAEAJZNPTSBXQQWK6JQAGXVFXHTDLP5DQWXXOHTZGXCA"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of ARS"
+desc = "Testnet mirror of ARS, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkBRL"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CAISCQN23ITIK5SDH4JP7DORQ6INZRWWVRGU4VN3S2RFGPXYA4K7F5WC"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of BRL"
+desc = "Testnet mirror of BRL, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkNGNC"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CBKNH6KROUSQMAMES333XZ4RNNV6MMQTD7NOV2IRFD6OPX3DSIYC62FP"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of NGNC"
+desc = "Testnet mirror of NGNC, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkNGNT"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CAM6PTKPXYP72TEFANEEKCQFV3HTH3COMPDP6KBX5SXR2NBZC74B63T2"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of NGNT"
+desc = "Testnet mirror of NGNT, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkPEN"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CDOZLOK454NGH27KR2ZSGWXNO5MD6IGVKGWQXX6RFM6PZXA6CSU2PPVM"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of PEN"
+desc = "Testnet mirror of PEN, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkCLPX"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CDQONPSYMCVJ3OUS246ORMCKEBRR26JOMSVMYEE4DJA7KPBUI3H4HIBB"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of CLPX"
+desc = "Testnet mirror of CLPX, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkUSDZ"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CB3WT4FHEGTEW4CFH4KFFL4KSCMF3IOELVI5357C3LS3YY6KMTBZH2Y7"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of USDZ"
+desc = "Testnet mirror of USDZ, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkZARZ"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CABBQINICYAPLZUGIW56OGZ7NRSHSALOTU3FRUF7ADP4X4XWAQN7RHNW"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of ZARZ"
+desc = "Testnet mirror of ZARZ, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkIDRT"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CA3DBIU3UVZQT5737UVPEVZ2OS4DLQG53RYFH7Z2XVNDLZDZ4H5EVBW2"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of IDRT"
+desc = "Testnet mirror of IDRT, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkXCHF"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CCA2EGCFYA3MFQXGMEPS6UWPB4P223PAVXNEXV5PMTWKYCILTARL5BVQ"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of XCHF"
+desc = "Testnet mirror of XCHF, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkEURMTL"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CCAWPUCEXULVVG3DRKBJSYAPDXAS62XFU45J2SCDA6ITT4F7H4UCTTYN"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of EURMTL"
+desc = "Testnet mirror of EURMTL, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkUSDM"
+issuer = "GCHXGEAEFD6H4FRP3L3VXB4E6RHHMY3Q72O76QD4IOOLJIRQPAWZW2ZO"
+contract = "CCLPZWH6RTWH7H25PMY6ZNWDMSOEGPC7PJT5II6P7JNAVBT77QTPSHG5"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of USDM"
+desc = "Testnet mirror of USDM, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkSHX"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CD4WDMAGZSBAA6KLJN22X65TQG25WK5FFQP6NALN2IYWYBX34VME7W47"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of SHX"
+desc = "Testnet mirror of SHX, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkAQUA"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CDT2S2NZRNOKX5WNU7BX6IQAF3W4TSTPMT7NM3AIIFTTXH4N6NKDDMRL"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of AQUA"
+desc = "Testnet mirror of AQUA, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkyXLM"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CDUAOPX27VN4B2L3B75QTCPNXW2PAIBUSW7V44SPLKTO3OKAIP5Q2JJF"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of yXLM"
+desc = "Testnet mirror of yXLM, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkyUSDC"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CB27FV3DDMN67ROGX7TOW7NBFWO7XE3O6Y7ZNCUNX63OVAOTVLWJI7EZ"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of yUSDC"
+desc = "Testnet mirror of yUSDC, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkyBTC"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CCYMO2JZXWFRRDGOADAP66JDZKQKORH4CFMOEVLHLY6PE5FLV37YSUDB"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of yBTC"
+desc = "Testnet mirror of yBTC, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkBTC"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CDZYSWHCDVFRHH2VMGT7TXS3I6V7QYFQDE3JQKVRYUQJVLBUILLMH47L"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of BTC"
+desc = "Testnet mirror of BTC, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkETH"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CCROVETFBLX6VFNOMT2FO7XUT732NZBDQ5OXQB4VTV3JV44TNXDJVNWZ"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of ETH"
+desc = "Testnet mirror of ETH, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkVELO"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CACSLEMIYPYNMJYE5DR6NOTCSTKTHGDRAYZ3TBODTJU3Q4PRMJJEURFU"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of VELO"
+desc = "Testnet mirror of VELO, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkBLND"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CBWNP73744VJFM525RPMJ4QZ757T7YSC6TTANYQURGI3CBRULGTUUXD2"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of BLND"
+desc = "Testnet mirror of BLND, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkXRP"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CDRO3DJ7RZTC6GS5CM3S4C6M24CZRY4TIMS6F7IODHZ64VUM6PDCLHAD"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of XRP"
+desc = "Testnet mirror of XRP, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkSCOP"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CBVCOYDNTPHMMHAE3SO3RUQ7I55DWLJJ7XHSHKXWV42FHYGPVBWQPV6W"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of SCOP"
+desc = "Testnet mirror of SCOP, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkAFR"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CBUPACOH73PF4UFJ7BNYFPK345EAPTUP3SQVMPEUUBY4UBHKME6R6NWC"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of AFR"
+desc = "Testnet mirror of AFR, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkTFT"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CBVFALCN2AWBM4UFWF4WPRNXGF3S2HG5EQN23J4N5HM54QZUXECFFYIO"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of TFT"
+desc = "Testnet mirror of TFT, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkGOLD"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CBTABFH4M2MTNXTI6A7ER57TNOOJ6SAXS2VQBS7URQXIBO7DOYRZOKGV"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of GOLD"
+desc = "Testnet mirror of GOLD, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkSLVR"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CCBKQJOYKICAR6DHUX265DJ3VBLSMNOMHGN6MWXE2ZGBHIXRHZ3BO26F"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of SLVR"
+desc = "Testnet mirror of SLVR, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
+
+[[CURRENCIES]]
+code = "mkLSP"
+issuer = "GCOLXYFNACOB3INECMZSTSBZCV7WVPW6KM7VP6DYAYPTXWCSKJKAHNIV"
+contract = "CBDBE42GBRNTE5D2CQSCPDVYCSWUNL7NBAZXTBFIE5KDVOKTPZ3PF6IU"
+status = "test"
+display_decimals = 7
+name = "Testnet mirror of LSP"
+desc = "Testnet mirror of LSP, not the real asset. Quasaria mock: not redeemable, no value, not affiliated with the real issuer."
