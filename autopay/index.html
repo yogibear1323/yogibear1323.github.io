@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex" />
 <meta name="description" content="Quasaria Autopay puts a down payment into a transparent on-chain vault on Stellar. Its yield is swept to the lender as extra principal. Prototype — not live." />
 <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-  <script type="module" crossorigin src="/autopay/assets/index-WXDZCJ1E.js"></script>
+  <script type="module" crossorigin src="/autopay/assets/index-DCkKxYsH.js"></script>
   <link rel="stylesheet" crossorigin href="/autopay/assets/index-BsTAVIMK.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
 
 <header class="nav">
   <a class="brand" href="#top" aria-label="Quasaria Autopay home"><span class="mark"><img src="./logo.svg" alt="" /> </span><span class="wm">Quasaria <b>Autopay</b></span></a>
-  <nav class="links"><a href="#watch">Watch</a><a href="#how">How it works</a><a href="#calc">Calculator</a><a href="#dealers">Dealers &amp; lenders</a><a href="#faq">FAQ</a></nav>
+  <nav class="links"><a href="#watch">Watch</a><a href="#how">How it works</a><a href="#calc">Calculator</a><a href="#dealers">Sellers &amp; lenders</a><a href="#faq">FAQ</a></nav>
   <div class="nav-cta"><a class="btn btn-sm btn-ghost" href="/autopay/app/#/welcome" data-demo="nav">Try the testnet demo <span class="tn">Testnet demo</span></a><a class="btn btn-sm" href="#pilot">Join the pilot</a></div>
 </header>
 
@@ -24,10 +24,10 @@
     <div class="hero-mark" aria-hidden="true"><span class="ring"></span><img src="./logo.svg" alt="" /> </div>
     <p class="eyebrow">Prototype · Testnet pilot</p>
     <h1>Down payments that<br /><em>keep working.</em></h1>
-    <p class="lede">Your down payment sits in a transparent on-chain vault. Its yield goes to your lender as extra principal, so every month it chips away at the loan.</p>
+    <p class="lede">Buying a car, a boat, a home or something else with a down payment? It sits in a transparent on-chain vault. Its yield goes to your lender as extra principal, so every month it chips away at the loan.</p>
     <div class="cta-row"><a class="btn" href="/autopay/app/#/welcome" data-demo="hero">Launch testnet portal <span class="tn">Testnet demo</span></a><a class="btn btn-ghost" href="#calc">Estimate your savings</a></div>
     <p class="demo-links"><a href="/autopay/app/#/demo" data-demo="watch-live">▶ Watch a live demo agreement <span class="tn">Testnet demo</span></a><span class="micro">No wallet needed · simulated yield · 1 month = 5 min · test tokens only</span></p>
-    <p class="micro">Motorcycles · Cars · Homes</p>
+    <p class="micro">Motorcycles · Cars · Boats · Homes · and more</p>
   </section>
 
   <section id="watch" class="block watch" aria-labelledby="watch-title">
@@ -68,7 +68,9 @@
         <div class="presets" role="group" aria-label="Example deals">
           <button type="button" data-preset="motorcycle">Motorcycle</button>
           <button type="button" data-preset="car" class="on">Car</button>
-          <button type="button" data-preset="house">House</button>
+          <button type="button" data-preset="boat">Boat</button>
+          <button type="button" data-preset="home">Home</button>
+          <button type="button" data-preset="other">Other</button>
         </div>
         <label>Price <span class="field"><i>$</i><input id="price" type="number" min="0" step="500" inputmode="decimal" /></span></label>
         <label>Down payment <span class="field"><i>$</i><input id="down" type="number" min="0" step="500" inputmode="decimal" /></span></label>
@@ -91,7 +93,7 @@
           <div><dt>Months saved*</dt><dd id="o-saved">—</dd></div>
           <div><dt>Interest saved*</dt><dd id="o-int">—</dd></div>
         </dl>
-        <p class="fine">Estimate only. Assumes the APY above holds for the whole term, which it won't exactly. *If the yield is applied as extra principal while your regular payment stays the same. Yield ≈ deposit × APY ÷ 12.</p>
+        <p class="fine">Illustrative estimate only; example deals are not offers. Assumes the APY above holds for the whole term, which it won't exactly. *If the yield is applied as extra principal while your regular payment stays the same. Yield ≈ deposit × APY ÷ 12.</p>
       </div>
     </div>
   </section>
@@ -111,17 +113,17 @@
 
   <section id="dealers" class="block split">
     <div>
-      <p class="eyebrow">For dealers &amp; lenders</p>
+      <p class="eyebrow">For sellers &amp; lenders</p>
       <h2>A deal-closing tool, not a new loan.</h2>
       <p class="sub">Offer buyers something tangible at the moment of decision, with no change to how you finance or get paid.</p>
     </div>
     <ul class="ticks-list">
       <li><b>Close more deals</b><span>A concrete incentive that lowers the effective payment.</span></li>
       <li><b>Get paid as normal</b><span>Your financing, funding and timelines stay the same.</span></li>
-      <li><b>Lender stays lienholder</b><span>Liens and titles stay with the traditional lender.</span></li>
+      <li><b>Lender stays lienholder</b><span>The lien on the asset stays with the traditional lender.</span></li>
       <li><b>Portal &amp; API</b><span>Create agreements, onboard buyers, reconcile sweeps.</span></li>
     </ul>
-    <p class="split-cta"><a class="btn btn-ghost" href="/autopay/app/#/dealer" data-demo="lender-portal">Open lender portal <span class="tn">Testnet demo</span></a></p>
+    <p class="split-cta"><a class="btn btn-ghost" href="/autopay/app/#/dealer" data-demo="lender-portal">Open seller or lender portal <span class="tn">Testnet demo</span></a></p>
   </section>
 
   <section id="security" class="block">
@@ -140,22 +142,22 @@
     <h2>Honest answers.</h2>
     <div class="faq">
       <details open><summary>What if yield drops?</summary><p>Then the sweep gets smaller, and it can be zero. Your loan payment doesn't change; you simply get less offset that month. There are no guaranteed returns.</p></details>
-      <details><summary>What happens if I default?</summary><p>The lender's normal process applies; they keep the lien and the title. Under the agreement, the lender can also claim the vault balance toward what's owed.</p></details>
+      <details><summary>What happens if I default?</summary><p>The lender's normal process applies; they keep the lien on the asset. Under the agreement, the lender can also claim the vault balance toward what's owed.</p></details>
       <details><summary>Does the yield pay off my loan?</summary><p>No. You keep making your payments. The yield offsets part of them, either lowering your effective payment or ending the loan a little early.</p></details>
       <details><summary>Can I lose money?</summary><p>Yes. On-chain yield sources carry smart-contract, market and stablecoin risk. Principal is at risk.</p></details>
       <details><summary>What happens to my deposit at payoff?</summary><p>It's handled under the agreement terms. In the prototype, the vault balance can be applied to your final balance or released once the loan is paid off.</p></details>
-      <details><summary>Is this live?</summary><p>Not with real money. Quasaria Autopay is a prototype. A <a href="/autopay/app/#/welcome">testnet demo</a> runs on Stellar testnet with test tokens and simulated yield, ahead of a pilot with select dealers and lenders.</p></details>
+      <details><summary>Is this live?</summary><p>Not with real money. Quasaria Autopay is a prototype. A <a href="/autopay/app/#/welcome">testnet demo</a> runs on Stellar testnet with test tokens and simulated yield, ahead of a pilot with select sellers and lenders.</p></details>
     </div>
   </section>
 
   <section id="pilot" class="block final">
     <div class="final-mark" aria-hidden="true"><img src="./logo.svg" alt="" /> </div>
     <h2>Join the pilot.</h2>
-    <p class="sub">Dealers, lenders and buyers: get on the list for the testnet pilot, or try the testnet demo now.</p>
+    <p class="sub">Sellers, lenders and buyers: get on the list for the testnet pilot, or try the testnet demo now.</p>
     <div class="cta-row final-cta"><a class="btn" href="#pilot-form">Join the pilot</a><a class="btn btn-ghost" href="/autopay/app/#/welcome" data-demo="final">Launch testnet portal <span class="tn">Testnet demo</span></a></div>
     <form id="pilot-form" class="wait" action="mailto:pilot@quasaria.example" method="post" enctype="text/plain">
-      <input name="email" type="email" placeholder="you@dealership.com" aria-label="Email" required />
-      <select name="role" aria-label="I am a"><option>Dealer</option><option>Lender</option><option>Buyer</option></select>
+      <input name="email" type="email" placeholder="you@company.com" aria-label="Email" required />
+      <select name="role" aria-label="I am a"><option>Seller</option><option>Lender</option><option>Buyer</option></select>
       <button class="btn" type="submit">Join waitlist</button>
     </form>
     <p class="micro">Placeholder form: opens your email app. Nothing is submitted.</p>
