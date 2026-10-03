@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.500
+Step 1: What Autopay is
+
+2
+00:00:02.500 --> 00:00:08.000
+Quasaria Autopay: your down payment sits in an on-chain vault and earns (simulated) yield.
+
+3
+00:00:08.000 --> 00:00:14.207
+Each demo month (5 minutes) the vault sweeps that yield to the lender as extra principal.
+
+4
+00:00:14.207 --> 00:00:21.721
+You still pay every installment. The loan just ends sooner. Watch the live demo deal, no wallet needed.
+
+5
+00:00:21.721 --> 00:00:26.221
+Testnet only: test tokens, simulated yield, illustrative figures. Not a loan offer.
+

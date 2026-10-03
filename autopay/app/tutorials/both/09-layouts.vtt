@@ -1,0 +1,18 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.500
+Step 9: Mobile vs web
+
+2
+00:00:02.500 --> 00:00:08.739
+Same app, two layouts. Wider than 860 px you get the Web app; narrower, the Mobile app.
+
+3
+00:00:08.739 --> 00:00:14.979
+Web: a sidebar, wide tables and the form side by side with the live estimate.
+
+4
+00:00:14.979 --> 00:00:21.218
+Mobile: bottom tabs, cards instead of tables, wallets in a bottom sheet. Force either with ?view=web or ?view=mobile.
+

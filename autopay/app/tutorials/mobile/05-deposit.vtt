@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.500
+Step 5: Deposit the down payment
+
+2
+00:00:02.501 --> 00:00:08.424
+Create & deposit takes two signatures: one creates the agreement, one moves the down payment into the vault.
+
+3
+00:00:08.424 --> 00:00:12.224
+Signature 1 of 2: create the agreement (Testnet).
+
+4
+00:00:12.224 --> 00:00:17.225
+The deposit now sits in the vault, and the simulated yield ticks up by the second.
+
+5
+00:00:17.225 --> 00:00:22.226
+Your dashboard shows the vault balance, the loan balance and the projected payoff.
+

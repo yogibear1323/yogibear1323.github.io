@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.500
+Step 2: Connect a wallet
+
+2
+00:00:02.500 --> 00:00:07.666
+On a phone, wallets open in a bottom sheet. Mobile-friendly options (Scopuly, Albedo, LOBSTR) come first.
+
+3
+00:00:07.666 --> 00:00:12.167
+Freighter and other extension wallets need a desktop browser. Here we use Albedo, a web wallet.
+
+4
+00:00:12.167 --> 00:00:15.968
+Albedo asks to share your public key. Approve it in the wallet.
+
+5
+00:00:15.968 --> 00:00:20.968
+Connected. The app remembers your choice, and every signature is checked against the Testnet passphrase.
+
