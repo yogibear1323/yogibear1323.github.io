@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quasaria Autopay — Down payments that keep working</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="Quasaria Autopay puts a down payment into a transparent on-chain vault on Stellar. Its yield is swept to the lender as extra principal. Prototype — not live." />
+<link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <script type="module" crossorigin src="/autopay/assets/index-CLd3piCB.js"></script>
+  <link rel="stylesheet" crossorigin href="/autopay/assets/index-DK0oPpt-.css">
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Quasaria Autopay home"><span class="mark"><img src="./logo.svg" alt="" /> </span><span class="wm">Quasaria <b>Autopay</b></span></a>
+  <nav class="links"><a href="#how">How it works</a><a href="#calc">Calculator</a><a href="#dealers">Dealers &amp; lenders</a><a href="#faq">FAQ</a></nav>
+  <a class="btn btn-sm" href="#pilot">Join the pilot</a>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-mark" aria-hidden="true"><span class="ring"></span><img src="./logo.svg" alt="" /> </div>
+    <p class="eyebrow">Prototype · Testnet pilot</p>
+    <h1>Down payments that<br /><em>keep working.</em></h1>
+    <p class="lede">Your down payment sits in a transparent on-chain vault. Its yield goes to your lender as extra principal, so every month it chips away at the loan.</p>
+    <div class="cta-row"><a class="btn" href="#calc">Estimate your savings</a><a class="btn btn-ghost" href="#dealers">For dealers &amp; lenders</a></div>
+    <p class="micro">Motorcycles · Cars · Homes</p>
+  </section>
+
+  <section id="how" class="block">
+    <p class="eyebrow">How it works</p>
+    <h2>Three steps. Your financing stays the same.</h2>
+    <div class="steps">
+      <article><span class="n">1</span><h3>Deposit</h3><p>At closing, your down payment goes into a USDC vault on Stellar, tied to your loan agreement.</p></article>
+      <article><span class="n">2</span><h3>Earn</h3><p>The vault earns yield from vetted on-chain sources. Yield varies and can be zero.</p></article>
+      <article><span class="n">3</span><h3>Sweep</h3><p>Each month the yield goes to your lender as extra principal. You still make your payments; the yield offsets part of them.</p></article>
+    </div>
+  </section>
+
+  <section id="calc" class="block">
+    <p class="eyebrow">Savings calculator</p>
+    <h2>See what your deposit could do.</h2>
+    <div class="calc">
+      <form class="calc-in" id="calc-form" autocomplete="off">
+        <div class="presets" role="group" aria-label="Example deals">
+          <button type="button" data-preset="motorcycle">Motorcycle</button>
+          <button type="button" data-preset="car" class="on">Car</button>
+          <button type="button" data-preset="house">House</button>
+        </div>
+        <label>Price <span class="field"><i>$</i><input id="price" type="number" min="0" step="500" inputmode="decimal" /></span></label>
+        <label>Down payment <span class="field"><i>$</i><input id="down" type="number" min="0" step="500" inputmode="decimal" /></span></label>
+        <div class="two">
+          <label>Loan rate <span class="field"><input id="rate" type="number" min="0" max="30" step="0.1" inputmode="decimal" /><i>%</i></span></label>
+          <label>Term <span class="field"><input id="months" type="number" min="1" max="480" step="1" inputmode="numeric" /><i>mo</i></span></label>
+        </div>
+        <label class="slider">Assumed vault APY <output id="apy-out">5.0%</output>
+          <input id="apy" type="range" min="0" max="10" step="0.25" value="5" />
+          <span class="ticks"><span>0%</span><span>5%</span><span>10%</span></span>
+        </label>
+      </form>
+      <div class="calc-out" aria-live="polite">
+        <p class="tag">Estimate</p>
+        <div class="big"><span>Est. yield / month</span><strong id="o-yield">—</strong></div>
+        <dl>
+          <div><dt>Monthly payment</dt><dd id="o-pay">—</dd></div>
+          <div><dt>Yield offsets</dt><dd id="o-off">—</dd></div>
+          <div><dt>Effective payment</dt><dd id="o-eff">—</dd></div>
+          <div><dt>Months saved*</dt><dd id="o-saved">—</dd></div>
+          <div><dt>Interest saved*</dt><dd id="o-int">—</dd></div>
+        </dl>
+        <p class="fine">Estimate only. Assumes the APY above holds for the whole term, which it won't exactly. *If the yield is applied as extra principal while your regular payment stays the same. Yield ≈ deposit × APY ÷ 12.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="buyers" class="block split">
+    <div>
+      <p class="eyebrow">For buyers</p>
+      <h2>Your deposit, still working for you.</h2>
+      <p class="sub">A down payment usually disappears at signing. With Autopay it stays visible and keeps contributing.</p>
+    </div>
+    <ul class="ticks-list">
+      <li><b>Lower effective payments</b><span>Yield offsets part of each month, or shortens the loan.</span></li>
+      <li><b>See it on-chain</b><span>Vault balance, yield and every sweep, any time.</span></li>
+      <li><b>Same loan, same lender</b><span>Your payments and terms work the way they always do.</span></li>
+    </ul>
+  </section>
+
+  <section id="dealers" class="block split">
+    <div>
+      <p class="eyebrow">For dealers &amp; lenders</p>
+      <h2>A deal-closing tool, not a new loan.</h2>
+      <p class="sub">Offer buyers something tangible at the moment of decision, with no change to how you finance or get paid.</p>
+    </div>
+    <ul class="ticks-list">
+      <li><b>Close more deals</b><span>A concrete incentive that lowers the effective payment.</span></li>
+      <li><b>Get paid as normal</b><span>Your financing, funding and timelines stay the same.</span></li>
+      <li><b>Lender stays lienholder</b><span>Liens and titles stay with the traditional lender.</span></li>
+      <li><b>Portal &amp; API</b><span>Create agreements, onboard buyers, reconcile sweeps.</span></li>
+    </ul>
+  </section>
+
+  <section id="security" class="block">
+    <p class="eyebrow">Security &amp; transparency</p>
+    <h2>Every dollar, in plain sight.</h2>
+    <div class="cards">
+      <article><h3>On-chain vaults</h3><p>Each agreement has its own vault on Stellar. Deposits and sweeps are public and verifiable.</p></article>
+      <article><h3>Vetted yield sources</h3><p>Only reviewed on-chain sources, with exposure limits. Yield can still fall to zero.</p></article>
+      <article><h3>Plain-language signing</h3><p>Every transaction is summarized in plain English before you approve it.</p></article>
+      <article><h3>Your keys</h3><p>Connect your own Stellar wallet. Sweeps can only go to the lender on the agreement.</p></article>
+    </div>
+  </section>
+
+  <section id="faq" class="block">
+    <p class="eyebrow">FAQ</p>
+    <h2>Honest answers.</h2>
+    <div class="faq">
+      <details open><summary>What if yield drops?</summary><p>Then the sweep gets smaller, and it can be zero. Your loan payment doesn't change; you simply get less offset that month. There are no guaranteed returns.</p></details>
+      <details><summary>What happens if I default?</summary><p>The lender's normal process applies; they keep the lien and the title. Under the agreement, the lender can also claim the vault balance toward what's owed.</p></details>
+      <details><summary>Does the yield pay off my loan?</summary><p>No. You keep making your payments. The yield offsets part of them, either lowering your effective payment or ending the loan a little early.</p></details>
+      <details><summary>Can I lose money?</summary><p>Yes. On-chain yield sources carry smart-contract, market and stablecoin risk. Principal is at risk.</p></details>
+      <details><summary>What happens to my deposit at payoff?</summary><p>It's handled under the agreement terms. In the prototype, the vault balance can be applied to your final balance or released once the loan is paid off.</p></details>
+      <details><summary>Is this live?</summary><p>Not yet. Quasaria Autopay is a prototype heading into a testnet pilot with select dealers and lenders.</p></details>
+    </div>
+  </section>
+
+  <section id="pilot" class="block final">
+    <div class="final-mark" aria-hidden="true"><img src="./logo.svg" alt="" /> </div>
+    <h2>Join the pilot.</h2>
+    <p class="sub">Dealers, lenders and buyers: get on the list for the testnet pilot.</p>
+    <form class="wait" action="mailto:pilot@quasaria.example" method="post" enctype="text/plain">
+      <input name="email" type="email" placeholder="you@dealership.com" aria-label="Email" required />
+      <select name="role" aria-label="I am a"><option>Dealer</option><option>Lender</option><option>Buyer</option></select>
+      <button class="btn" type="submit">Join waitlist</button>
+    </form>
+    <p class="micro">Placeholder form: opens your email app. Nothing is submitted.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="brand"><span class="mark"><img src="./logo.svg" alt="" /> </span><span class="wm">Quasaria <b>Autopay</b></span></div>
+  <p class="disc" id="disclaimer"></p>
+  <p class="copy">© 2026 Quasaria · Prototype</p>
+</footer>
+</body>
+</html>
