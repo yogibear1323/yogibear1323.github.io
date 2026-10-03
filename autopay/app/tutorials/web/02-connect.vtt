@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.500
-Step 2: Connect a wallet
+00:00:00.000 --> 00:00:02.692
+Step two. Connect a wallet.
 
 2
-00:00:02.500 --> 00:00:07.724
-Open Connect wallet. Pick any wallet set to Testnet: Freighter, Albedo, xBull, LOBSTR, Scopuly and more.
+00:00:02.692 --> 00:00:12.296
+Open Connect wallet, and pick any Stellar wallet that is set to testnet. Freighter, Albedo, x Bull, Lobster and Scopuly are all listed.
 
 3
-00:00:07.724 --> 00:00:12.224
-Browser-extension wallets show Installed when found. This tutorial uses Albedo, a web wallet (network=testnet).
+00:00:12.296 --> 00:00:21.815
+Extension wallets are marked as installed when your browser has them. Here we click Connect next to Albedo, a web wallet that runs on testnet.
 
 4
-00:00:12.224 --> 00:00:16.025
-Albedo asks to share your public key. Approve it in the wallet.
+00:00:21.815 --> 00:00:26.896
+Albedo asks to share your public key. Approve it in the Albedo window.
 
 5
-00:00:16.025 --> 00:00:21.026
-Connected. The app remembers your choice, and every signature is checked against the Testnet passphrase.
+00:00:26.896 --> 00:00:33.364
+You're connected. The app remembers your wallet, and checks every signature against the testnet network.
 

@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.500
-Step 3: Get test tokens
+00:00:00.000 --> 00:00:02.777
+Step three. Get test tokens.
 
 2
-00:00:02.500 --> 00:00:09.357
-A new account needs test XLM for fees. Tap Get test XLM (Stellar friendbot).
+00:00:02.777 --> 00:00:10.205
+A brand new account needs a little test X L M to pay network fees. Click Get test X L M.
 
 3
-00:00:09.357 --> 00:00:13.896
-Then Get test tUSDC: 50,000 test tokens per hour from the demo token faucet.
+00:00:10.205 --> 00:00:17.548
+Next, click Get test U S D C. The faucet gives you fifty thousand test tokens, once an hour.
 
 4
-00:00:13.896 --> 00:00:17.696
-Albedo shows the transaction and the network: Testnet. Confirm to sign.
+00:00:17.548 --> 00:00:23.312
+Albedo shows the transaction, and the network says testnet. Confirm to sign it.
 
 5
-00:00:17.696 --> 00:00:22.696
-Done. The balance updates and every action links to the testnet transaction.
+00:00:23.312 --> 00:00:29.652
+Done. Your balance updates, and every action links to its transaction on the testnet explorer.
 

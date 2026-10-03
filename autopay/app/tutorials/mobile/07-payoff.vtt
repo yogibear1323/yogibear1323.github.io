@@ -1,26 +1,26 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.500
-Step 7: Early payoff and lien release
+00:00:00.000 --> 00:00:03.588
+Step seven. Early payoff, and the lien release.
 
 2
-00:00:02.500 --> 00:00:07.535
-Early payoff: the live quote is the loan balance plus interest that grows by the second.
+00:00:03.588 --> 00:00:11.336
+To pay off early, open Early payoff. The quote is your loan balance plus interest, which grows by the second.
 
 3
-00:00:07.535 --> 00:00:14.662
-You approve a cap: the balance plus one month of interest. The vault charges the exact amount when it runs.
+00:00:11.336 --> 00:00:21.047
+So you approve a cap: the balance plus one month of interest. When the transaction runs, the vault charges the exact amount owed. Tap Pay off.
 
 4
-00:00:14.662 --> 00:00:20.190
-Paid off: the exact amount went to the lender, and the rest of the cap came back in the same transaction.
+00:00:21.047 --> 00:00:28.859
+Paid off. The exact amount went to the lender, and the rest of the cap came straight back to you, in the same transaction.
 
 5
-00:00:20.190 --> 00:00:25.310
-The seller or lender then confirms the lien is released on the asset…
+00:00:28.859 --> 00:00:35.668
+Next, the seller or lender taps Attest lien released, to confirm the lien on the asset is cleared.
 
 6
-00:00:25.310 --> 00:00:30.839
-…and the vault returns the down payment plus any unswept yield to the buyer. Deal closed.
+00:00:35.668 --> 00:00:41.539
+The vault then returns your down payment, plus any unswept yield. The deal is closed.
 

@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.500
-Step 2: Connect a wallet
+00:00:00.000 --> 00:00:02.692
+Step two. Connect a wallet.
 
 2
-00:00:02.500 --> 00:00:07.666
-On a phone, wallets open in a bottom sheet. Mobile-friendly options (Scopuly, Albedo, LOBSTR) come first.
+00:00:02.692 --> 00:00:11.293
+On a phone, the wallet list opens in a bottom sheet, with phone-friendly wallets like Scopuly, Albedo and Lobster at the top.
 
 3
-00:00:07.666 --> 00:00:12.167
-Freighter and other extension wallets need a desktop browser. Here we use Albedo, a web wallet.
+00:00:11.293 --> 00:00:18.742
+Extension wallets like Freighter need a desktop browser. Here we tap Connect next to Albedo, a web wallet.
 
 4
-00:00:12.167 --> 00:00:15.968
-Albedo asks to share your public key. Approve it in the wallet.
+00:00:18.742 --> 00:00:23.823
+Albedo asks to share your public key. Approve it in the Albedo window.
 
 5
-00:00:15.968 --> 00:00:20.968
-Connected. The app remembers your choice, and every signature is checked against the Testnet passphrase.
+00:00:23.823 --> 00:00:30.291
+You're connected. The app remembers your wallet, and checks every signature against the testnet network.
 

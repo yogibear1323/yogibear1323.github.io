@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.500
-Step 5: Deposit the down payment
+00:00:00.000 --> 00:00:03.247
+Step five. Deposit the down payment.
 
 2
-00:00:02.500 --> 00:00:08.343
-Create & deposit takes two signatures: one creates the agreement, one moves the down payment into the vault.
+00:00:03.247 --> 00:00:11.486
+Click Create and deposit. You'll sign twice: once to create the agreement, and once to move your down payment into the vault.
 
 3
-00:00:08.343 --> 00:00:12.143
-Signature 1 of 2: create the agreement (Testnet).
+00:00:11.486 --> 00:00:18.103
+Here is the first signature in Albedo, on testnet. Confirm it, then confirm the second one.
 
 4
-00:00:12.143 --> 00:00:17.145
-The deposit now sits in the vault, and the simulated yield ticks up by the second.
+00:00:18.103 --> 00:00:23.739
+The deposit now sits in the vault, and the simulated yield ticks up every second.
 
 5
-00:00:17.145 --> 00:00:22.145
-Your dashboard shows the vault balance, the loan balance and the projected payoff.
+00:00:23.739 --> 00:00:29.247
+Your dashboard shows the vault balance, what you still owe, and the projected payoff.
 

@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.500
-Step 8: Seller or lender view
+00:00:00.000 --> 00:00:03.033
+Step eight. The seller or lender view.
 
 2
-00:00:02.500 --> 00:00:09.705
-Seller or lender view: every agreement with its asset label (here Boat), status and yield received.
+00:00:03.033 --> 00:00:11.848
+Sellers and lenders get their own view. Every agreement is listed with its asset, here a boat, its status, and the yield received.
 
 3
-00:00:09.705 --> 00:00:17.410
-Agreement detail: terms, payments, sweeps and the lien status, read live from testnet.
+00:00:11.848 --> 00:00:19.553
+Open an agreement to see the terms, payments, sweeps and the lien status, read live from testnet.
 
 4
-00:00:17.410 --> 00:00:25.617
-Payout ledger: every sweep and installment from on-chain events, with links to each transaction.
+00:00:19.553 --> 00:00:27.760
+The payout ledger lists every sweep and payment from on-chain events, with a link to each transaction.
 
 5
-00:00:25.617 --> 00:00:31.117
-Invite a buyer: pick the asset type, set starting numbers and share a link.
+00:00:27.760 --> 00:00:33.417
+And Invite a buyer lets you pick the asset type, set starting numbers, and share a link.
 
