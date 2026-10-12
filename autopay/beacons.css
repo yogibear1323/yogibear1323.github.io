@@ -25,13 +25,52 @@
   .qz-scrim { background: linear-gradient(180deg, rgba(20,18,31,.55) 0%, rgba(20,18,31,.88) 60%, rgba(20,18,31,.95) 100%); }
 }
 .qz-orbits { position: absolute; pointer-events: none; z-index: 0; }
-/* ---- Autopay landing: Beacons charcoal + quasar hero (override layer; copy unchanged) ---- */
-:root{--bg:#14121f;--bg-elev:#1b1829;--line:rgba(139,124,255,.26);--line-2:#342d52;--text:#ecebf5;--text-2:#a9a4c4;--text-3:#948eb4}
-body{background:#14121f}
-.nav{background:rgba(20,18,31,.78)!important}
-.hero{position:relative;isolation:isolate}
-.hero>*:not(.qz):not(.qz-scrim){position:relative;z-index:1}
-.hero>.qz{inset:0 -5vw;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent);mask-image:linear-gradient(180deg,#000 75%,transparent)}
-.hero .qz-obj{left:50%;right:auto;top:132px;width:min(64vw,620px);transform:translate(-50%,-50%)}
-.hero>.qz-scrim{z-index:0;background:radial-gradient(55% 45% at 50% 66%,rgba(20,18,31,.88),rgba(20,18,31,.5) 60%,transparent 85%)}
-@media (max-width:760px){.hero .qz-obj{width:120vw;top:122px}}
+/* ---- Autopay landing: Quasaria "World light" layer (matches the exchange at /quasaria/; copy unchanged) ----
+   Tokens mirror yogibear1323/quasaria frontend/src/theme/tokens.css. Text pairs AA. Quasar disk kept, stars hidden. */
+html:root{color-scheme:light;--bg:#f5f6fd;--bg-elev:#ffffff;--line:#cdc7ec;--line-2:#dfdcf3;--text:#1b1640;--text-2:#4a4470;--text-3:#5d577f;
+  --violet:#6d28d9;--violet-hi:#5b21b6;--cyan:#0e7490;--cyan-hi:#155e75;--amber:#b45309;
+  --grad:linear-gradient(135deg,#8b5cf6 0%,#d946ef 45%,#06b6d4 100%);--grad-button:linear-gradient(135deg,#6d28d9 0%,#a21caf 55%,#0e7490 100%);
+  --glow:drop-shadow(0 0 8px rgba(139,92,246,.35)) drop-shadow(0 0 18px rgba(6,182,212,.25));
+  --shadow-1:inset 0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(46,30,110,.08),0 14px 34px -20px rgba(76,29,149,.35)}
+html body{background:var(--bg);color:var(--text)}
+html .sky.world-bg{z-index:-1}
+html .nav{background:rgba(255,255,255,.82)!important;border-bottom:1px solid var(--line-2)}
+html .btn{color:#fff;background:var(--grad-button);box-shadow:0 10px 30px -14px rgba(109,40,217,.7)}
+html .btn:hover{box-shadow:0 14px 36px -12px rgba(109,40,217,.75)}
+html .btn-ghost{background:#fff;color:var(--violet-hi);box-shadow:0 0 0 1px var(--line) inset}
+html .btn-ghost:hover{box-shadow:0 0 0 1px rgba(109,40,217,.5) inset}
+html .steps article,html .cards article,html .calc-in{background:rgba(255,255,255,.88);border-color:var(--line-2);box-shadow:var(--shadow-1)}
+html .calc-out{background:radial-gradient(500px 300px at 100% 0,rgba(232,121,249,.14),transparent 70%),#fff;border-color:var(--line-2);box-shadow:var(--shadow-1)}
+html .steps .n{color:var(--violet-hi);border-color:rgba(109,40,217,.4);box-shadow:none;background:#fff}
+html .presets{background:#efedfc}
+html .presets button.on{background:#fff;color:var(--violet-hi);box-shadow:0 0 0 1px rgba(109,40,217,.35) inset}
+html .field{background:#fff;border-color:var(--line)}
+html .field:focus-within{border-color:rgba(109,40,217,.6);box-shadow:0 0 0 3px rgba(139,92,246,.15)}
+html input[type=range]{background:linear-gradient(90deg,#8b5cf6,#06b6d4 var(--p),#e4e0f7 var(--p))}
+html input[type=range]::-webkit-slider-thumb{background:#fff;box-shadow:0 0 0 2px #6d28d9,0 0 12px rgba(139,92,246,.5)}
+html input[type=range]::-moz-range-thumb{background:#fff;box-shadow:0 0 0 2px #6d28d9}
+html .tag{color:var(--cyan-hi);border-color:rgba(14,116,144,.35);background:#fff}
+html .ticks-list li:before{background:#8b5cf6;box-shadow:0 0 10px rgba(139,92,246,.6)}
+html .wait{background:#fff;border-color:var(--line);box-shadow:var(--shadow-1)}
+html .tn{color:#422006;background:#fde68a}
+html .player{background:linear-gradient(135deg,rgba(139,92,246,.55),rgba(217,70,239,.3) 45%,rgba(6,182,212,.55));box-shadow:0 30px 70px -34px rgba(76,29,149,.55)}
+html .hero-mark img{filter:drop-shadow(0 0 14px rgba(139,92,246,.35)) drop-shadow(0 0 30px rgba(6,182,212,.25))}
+html .hero-mark .ring{background:radial-gradient(circle,rgba(139,92,246,.18),transparent 62%)}
+html .hero-mark:before{background:radial-gradient(circle,rgba(6,182,212,.12),rgba(232,121,249,.08) 45%,transparent 68%)}
+/* quasar hero, light */
+html .hero{position:relative;isolation:isolate}
+html .hero>*:not(.qz):not(.qz-scrim){position:relative;z-index:1}
+html .hero>.qz{inset:0 -5vw;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent);mask-image:linear-gradient(180deg,#000 75%,transparent)}
+html .hero .qz-obj{left:50%;right:auto;top:132px;width:min(64vw,620px);transform:translate(-50%,-50%)}
+html .hero .qz-stars{opacity:0}
+html .hero .qz-core{box-shadow:0 0 50px 14px rgba(139,92,246,.25),0 0 100px 30px rgba(6,182,212,.12)}
+html .hero>.qz-scrim{z-index:0;background:radial-gradient(55% 45% at 50% 66%,rgba(245,246,253,.9),rgba(245,246,253,.55) 60%,transparent 85%)}
+@media (max-width:760px){html .hero .qz-obj{width:120vw;top:122px}}
+/* link back to the Quasaria world */
+html .qw-link{display:inline-flex;align-items:center;gap:7px;color:var(--violet-hi)!important;font-weight:600}
+html .qw-link .g{width:14px;height:14px;border-radius:50%;background:conic-gradient(from 200deg,#8b5cf6,#d946ef,#06b6d4,#8b5cf6)}
+html .qw-foot{color:var(--violet-hi);text-decoration:underline}
+html .demo-links a,html .demo-note a,html .steps .try{color:var(--violet)}
+html a:focus-visible,html button:focus-visible{outline:2px solid #6d28d9;outline-offset:2px}
+
+html,html body{overflow-x:clip}
