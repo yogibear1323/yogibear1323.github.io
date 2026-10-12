@@ -63,7 +63,7 @@ html .hero>*:not(.qz):not(.qz-scrim){position:relative;z-index:1}
 html .hero>.qz{inset:0 -5vw;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent);mask-image:linear-gradient(180deg,#000 75%,transparent)}
 html .hero .qz-obj{left:50%;right:auto;top:132px;width:min(64vw,620px);transform:translate(-50%,-50%)}
 html .hero .qz-stars{opacity:0}
-html .hero .qz-core{box-shadow:0 0 50px 14px rgba(139,92,246,.25),0 0 100px 30px rgba(6,182,212,.12)}
+html .hero .qz-core{box-shadow:0 0 50px 14px rgba(139,92,246,.25),0 0 100px 30px rgba(6,182,212,.12),0 0 34px 6px rgba(242,184,75,.28)}
 html .hero>.qz-scrim{z-index:0;background:radial-gradient(55% 45% at 50% 66%,rgba(245,246,253,.9),rgba(245,246,253,.55) 60%,transparent 85%)}
 @media (max-width:760px){html .hero .qz-obj{width:120vw;top:122px}}
 /* link back to the Quasaria world */
