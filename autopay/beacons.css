@@ -112,3 +112,7 @@ html .qz-orbits ellipse:nth-of-type(1) { stroke: #c4704a; } html .qz-orbits elli
 html .nv-group a.on { background: rgba(196, 112, 74, 0.16); color: var(--text); box-shadow: inset 2px 0 0 #8a3a1c; }
 html .nv-group a:hover { background: rgba(196, 112, 74, 0.08); }
 html .glow { filter: drop-shadow(0 0 8px rgba(196, 112, 74, 0.35)) drop-shadow(0 0 18px rgba(242, 184, 75, 0.25)); }
+html .hero-mark img{filter:drop-shadow(0 0 14px rgba(242,184,75,.5)) drop-shadow(0 0 34px rgba(196,112,74,.35))}
+html .hero-mark .ring{background:radial-gradient(circle,rgba(232,163,61,.20),transparent 62%)}
+html .hero-mark:before{background:radial-gradient(circle,rgba(242,184,75,.14),rgba(110,124,74,.08) 45%,transparent 68%)}
+html .final-mark img{filter:drop-shadow(0 0 12px rgba(242,184,75,.5))}
