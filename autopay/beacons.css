@@ -28,7 +28,7 @@
 /* ---- Autopay landing: Quasaria "World light" layer (matches the exchange at /quasaria/; copy unchanged) ----
    Tokens mirror yogibear1323/quasaria frontend/src/theme/tokens.css. Text pairs AA. Quasar disk kept, stars hidden. */
 html:root{color-scheme:light;--bg:#e6e6f0;--bg-elev:#ffffff;--line:#b3adcf;--line-2:#cbc6e0;--text:#1b1640;--text-2:#3d3764;--text-3:#4b4570;
-  --violet:#5b21b6;--violet-hi:#5b21b6;--cyan:#0e7490;--cyan-hi:#155e75;--amber:#b45309;
+  --violet:#5b21b6;--violet-hi:#5b21b6;--cyan:#0b5f75;--cyan-hi:#0f4c5f;--amber:#92400e;
   --grad:linear-gradient(135deg,#8b5cf6 0%,#d946ef 45%,#06b6d4 100%);--grad-button:linear-gradient(135deg,#6d28d9 0%,#a21caf 55%,#0e7490 100%);
   --glow:drop-shadow(0 0 8px rgba(139,92,246,.35)) drop-shadow(0 0 18px rgba(6,182,212,.25));
   --shadow-1:inset 0 1px 0 rgba(255,255,255,.9),0 1px 3px rgba(20,18,40,.20),0 16px 36px -18px rgba(18,16,40,.58)}
@@ -75,3 +75,4 @@ html .demo-links a,html .demo-note a,html .steps .try{color:var(--violet)}
 html a:focus-visible,html button:focus-visible{outline:2px solid #6d28d9;outline-offset:2px}
 
 html,html body{overflow-x:clip}
+html .eyebrow{color:#5b21b6}
