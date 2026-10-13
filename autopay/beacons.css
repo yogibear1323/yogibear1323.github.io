@@ -32,7 +32,8 @@ html:root{color-scheme:light;--bg:#e6e6f0;--bg-elev:#ffffff;--line:#b3adcf;--lin
   --grad:linear-gradient(135deg,#8b5cf6 0%,#d946ef 45%,#06b6d4 100%);--grad-button:linear-gradient(135deg,#6d28d9 0%,#a21caf 55%,#0e7490 100%);
   --glow:drop-shadow(0 0 8px rgba(139,92,246,.35)) drop-shadow(0 0 18px rgba(6,182,212,.25));
   --shadow-1:inset 0 1px 0 rgba(255,255,255,.9),0 1px 3px rgba(20,18,40,.20),0 16px 36px -18px rgba(18,16,40,.58)}
-html body{background:var(--bg);color:var(--text)}
+html{background:var(--bg)}
+html body{background:transparent;color:var(--text)}
 html .sky.world-bg{z-index:-1}
 html .nav{background:rgba(255,255,255,.82)!important;border-bottom:1px solid var(--line-2)}
 html .btn{color:#fff;background:var(--grad-button);box-shadow:0 10px 30px -14px rgba(109,40,217,.7)}
