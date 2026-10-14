@@ -229,3 +229,5 @@ html.frost .btn { color: #0f1a33; } html.frost .btn.btn-ghost { color: var(--tex
 html.frost .hero h1 em { color: #dfe8f5; }
 html.frost body { background: transparent; }
 html.frost .nav-cta a.btn:not(.btn-ghost), html.frost a.btn:not(.btn-ghost), html.frost button.btn:not(.btn-ghost) { color: #0f1a33; }
+html.frost .parka-yeti { object-fit: contain; object-position: 50% 100%; filter: drop-shadow(0 6px 10px rgba(2, 6, 20, .55));
+  -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent 100%); mask-image: linear-gradient(180deg, #000 80%, transparent 100%); }
