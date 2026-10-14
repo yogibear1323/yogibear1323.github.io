@@ -1,0 +1,18 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.055
+Step nine. Mobile versus web.
+
+2
+00:00:03.055 --> 00:00:10.035
+It's the same app in two layouts. On wide screens you get the web app. On a phone, you get the mobile app.
+
+3
+00:00:10.035 --> 00:00:16.665
+The web app has a sidebar, wide tables, and the form side by side with the live estimate.
+
+4
+00:00:16.665 --> 00:00:25.629
+The mobile app has bottom tabs, cards instead of tables, and wallets in a bottom sheet. You can switch layouts any time from the menu.
+

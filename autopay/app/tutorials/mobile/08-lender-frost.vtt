@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.033
+Step eight. The seller or lender view.
+
+2
+00:00:03.033 --> 00:00:11.848
+Sellers and lenders get their own view. Every agreement is listed with its asset, here a boat, its status, and the yield received.
+
+3
+00:00:11.848 --> 00:00:19.568
+Open an agreement to see the terms, payments, sweeps and the lien status, read live from testnet.
+
+4
+00:00:19.568 --> 00:00:27.794
+The payout ledger lists every sweep and payment from on-chain events, with a link to each transaction.
+
+5
+00:00:27.794 --> 00:00:33.451
+And Invite a buyer lets you pick the asset type, set starting numbers, and share a link.
+
