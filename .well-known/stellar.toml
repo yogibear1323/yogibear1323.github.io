@@ -6,7 +6,6 @@ ACCOUNTS = [
   "GDC4U6RG7XF5CQBZTR2JVV57QFP65PJGNLYNCNN73AIMEZUK5EWMWL5T",
   "GDBFQJEZ5HNC2SRT55COJL3I4EYPQ4X4S2TEO2Q7HSPQXPUKL2GIG76L",
   "GAYQNEMBXY3SSGS3F76AFRNG76IODTD63E6HZROVBITMPWSL64IKG4MQ",
-  "GBHJYTPU7MTAZ3DHCL5Z7QI3DYYMGZTVADC2ZRELLGNYEVJOSRS7U73Y",
 ]
 
 [DOCUMENTATION]
@@ -16,7 +15,7 @@ ORG_LOGO = "https://yogibear1323.github.io/tokens/glacierq-512.png"
 ORG_DESCRIPTION = "Quasaria is a self-banking decentralized exchange on Stellar: swaps through the Stellar order book, liquidity pools, and Glacier (GLACIERQ) holder rewards. You hold the secret key and sign everything in your own browser."
 ORG_GITHUB = "yogibear1323"
 
-# Accounts listed above: issuer, distribution (treasury), reward reserve, referral payer (in that order).
+# Accounts listed above: issuer, distribution (treasury), reward reserve (in that order).
 [[CURRENCIES]]
 code = "GLACIERQ"
 issuer = "GDC4U6RG7XF5CQBZTR2JVV57QFP65PJGNLYNCNN73AIMEZUK5EWMWL5T"
