@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="galactic">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#04050f">
+  <title>Jev console — read-only snapshot (paper only)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #04050f;
+      --ink: #d5daf7;
+      --muted: #a3abdc;
+      --dim: #8189bf;
+      --cyan: #5ee7ff;
+      --mint: #2ee6b0;
+      --rose: #ff5aa5;
+      --amber: #fbbf24;
+      --violet: #a98cff;
+      --panel: rgba(8, 10, 30, .86);
+      --panel2: rgba(14, 18, 48, .72);
+      --line: rgba(125, 140, 255, .24);
+      --glow: 94, 231, 255;
+      --font-sans: "Exo 2", Inter, ui-sans-serif, system-ui, sans-serif;
+      --font-display: "Orbitron", "Exo 2", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: var(--font-sans); font-size: 15px; line-height: 1.55; }
+    body { min-height: 100vh; }
+    .nebula, .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .nebula {
+      background:
+        radial-gradient(60% 45% at 18% 22%, rgba(112, 64, 214, .20), transparent 70%),
+        radial-gradient(55% 50% at 86% 78%, rgba(20, 150, 210, .14), transparent 70%),
+        radial-gradient(40% 35% at 62% 8%, rgba(210, 70, 170, .08), transparent 70%),
+        radial-gradient(45% 40% at 40% 95%, rgba(70, 60, 200, .10), transparent 70%),
+        linear-gradient(180deg, #03040c 0%, #060920 55%, #0a0c2b 100%);
+    }
+    .stars span { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #e4eaff; opacity: .6; }
+    .wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 20px 80px; }
+    .banner {
+      position: sticky; top: 0; z-index: 5;
+      background: linear-gradient(90deg, rgba(58, 44, 0, .95), rgba(46, 35, 0, .95));
+      border-bottom: 1px solid rgba(251, 191, 36, .45);
+      color: #ffe9a8;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: .08em;
+      padding: 10px 16px;
+    }
+    header.hero { padding: 36px 0 12px; }
+    .brand { font-family: var(--font-display); letter-spacing: .22em; font-size: 13px; color: var(--cyan); text-shadow: 0 0 12px rgba(var(--glow), .45); margin: 0 0 8px; }
+    h1 { font-family: var(--font-display); font-size: clamp(28px, 5vw, 44px); letter-spacing: .06em; margin: 0 0 10px; font-weight: 600; }
+    .lede { color: var(--muted); max-width: 46rem; margin: 0 0 18px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: rgba(10, 13, 38, .8); color: var(--ink); font-family: var(--font-display); font-size: 10px; letter-spacing: .12em; padding: 5px 9px; border-radius: 2px; }
+    .chip.pass { color: var(--mint); border-color: rgba(46, 230, 176, .4); }
+    .chip.fail { color: var(--rose); border-color: rgba(255, 90, 165, .45); }
+    .chip.lock { color: var(--amber); border-color: rgba(251, 191, 36, .45); }
+    .chip.paper { color: #ffe08a; border-color: rgba(251, 191, 36, .35); }
+    nav { display: flex; flex-wrap: wrap; gap: 14px; padding: 8px 0 22px; }
+    nav a { color: var(--muted); text-decoration: none; font-family: var(--font-display); font-size: 11px; letter-spacing: .1em; }
+    nav a:hover { color: var(--cyan); }
+    section { margin: 0 0 28px; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 22px 22px 18px;
+      box-shadow: 0 0 0 1px rgba(94, 231, 255, .04), 0 16px 40px -24px rgba(0,0,0,.7);
+      backdrop-filter: blur(10px);
+    }
+    .panel h2 {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: .14em;
+      color: #cdd4ff;
+      text-shadow: 0 0 10px rgba(120, 140, 255, .35);
+      margin: 0 0 14px;
+      font-weight: 600;
+    }
+    h3 { font-size: 15px; margin: 0 0 8px; font-weight: 600; }
+    p { margin: 0 0 12px; }
+    p:last-child { margin-bottom: 0; }
+    .muted { color: var(--muted); }
+    .dim { color: var(--dim); }
+    .warn { color: #ffe08a; }
+    .fail-text { color: var(--rose); }
+    .ok-text { color: var(--mint); }
+    .mods { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 12px; }
+    .mod { background: var(--panel2); border: 1px solid var(--line); border-radius: 4px; padding: 14px; }
+    .mod h3 { font-family: var(--font-display); font-size: 11px; letter-spacing: .1em; color: var(--cyan); }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 14px 0; }
+    .fact { background: rgba(70, 80, 180, .12); border: 1px solid var(--line); padding: 10px 12px; border-radius: 4px; }
+    .fact b { display: block; font-family: var(--font-mono); font-size: 16px; color: var(--cyan); margin-top: 2px; font-weight: 500; }
+    .fact span { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(125, 140, 255, .16); vertical-align: top; }
+    thead th { color: var(--dim); font-weight: 500; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    tbody th { color: var(--muted); font-weight: 500; width: 34%; }
+    .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    .scroll { overflow-x: auto; }
+    .callout {
+      margin: 0 0 16px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--rose);
+      background: rgba(255, 90, 165, .08);
+    }
+    .callout.amber { border-left-color: var(--amber); background: rgba(251, 191, 36, .08); }
+    .callout.mint { border-left-color: var(--mint); background: rgba(46, 230, 176, .07); }
+    ul.limits { columns: 2; gap: 24px; margin: 8px 0 0; padding: 0 0 0 18px; }
+    @media (max-width: 720px) { ul.limits { columns: 1; } }
+    footer { color: var(--dim); font-size: 13px; padding-top: 8px; }
+    a { color: var(--cyan); }
+    .stamp {
+      display: inline-block;
+      font-family: var(--font-display);
+      letter-spacing: .16em;
+      color: var(--rose);
+      border: 2px solid var(--rose);
+      padding: 6px 12px;
+      transform: rotate(-6deg);
+      margin: 4px 0 12px;
+      text-shadow: 0 0 10px rgba(255, 90, 165, .35);
+    }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 800px) { .two { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="nebula" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"><span style="left:66.22%;top:21.25%;width:1.2px;height:1.2px;opacity:0.41"></span><span style="left:85.00%;top:78.58%;width:1.8px;height:1.8px;opacity:0.74"></span><span style="left:92.59%;top:0.45%;width:0.6px;height:0.6px;opacity:0.41"></span><span style="left:39.45%;top:58.68%;width:2.2px;height:2.2px;opacity:0.44"></span><span style="left:88.17%;top:92.67%;width:1.1px;height:1.1px;opacity:0.36"></span><span style="left:40.70%;top:92.72%;width:0.8px;height:0.8px;opacity:0.35"></span><span style="left:71.95%;top:88.02%;width:1.9px;height:1.9px;opacity:0.64"></span><span style="left:7.80%;top:76.86%;width:0.7px;height:0.7px;opacity:0.52"></span><span style="left:80.50%;top:12.23%;width:1.2px;height:1.2px;opacity:0.32"></span><span style="left:69.88%;top:42.44%;width:0.7px;height:0.7px;opacity:0.28"></span><span style="left:5.59%;top:15.92%;width:1.7px;height:1.7px;opacity:0.38"></span><span style="left:33.23%;top:59.25%;width:1.2px;height:1.2px;opacity:0.36"></span><span style="left:72.55%;top:11.98%;width:0.9px;height:0.9px;opacity:0.69"></span><span style="left:46.93%;top:91.31%;width:1.7px;height:1.7px;opacity:0.40"></span><span style="left:30.60%;top:82.87%;width:1.1px;height:1.1px;opacity:0.61"></span><span style="left:85.42%;top:31.66%;width:0.6px;height:0.6px;opacity:0.52"></span><span style="left:79.23%;top:31.40%;width:1.0px;height:1.0px;opacity:0.67"></span><span style="left:46.68%;top:17.45%;width:1.3px;height:1.3px;opacity:0.36"></span><span style="left:4.69%;top:85.79%;width:1.6px;height:1.6px;opacity:0.49"></span><span style="left:79.87%;top:3.35%;width:1.2px;height:1.2px;opacity:0.31"></span><span style="left:92.09%;top:95.57%;width:1.8px;height:1.8px;opacity:0.35"></span><span style="left:25.67%;top:52.88%;width:1.4px;height:1.4px;opacity:0.61"></span><span style="left:71.53%;top:93.21%;width:1.7px;height:1.7px;opacity:0.66"></span><span style="left:84.17%;top:77.48%;width:1.1px;height:1.1px;opacity:0.71"></span><span style="left:32.07%;top:26.56%;width:0.9px;height:0.9px;opacity:0.49"></span><span style="left:75.72%;top:34.19%;width:2.1px;height:2.1px;opacity:0.50"></span><span style="left:61.09%;top:16.48%;width:1.6px;height:1.6px;opacity:0.29"></span><span style="left:13.70%;top:10.51%;width:2.0px;height:2.0px;opacity:0.46"></span><span style="left:91.78%;top:10.02%;width:1.1px;height:1.1px;opacity:0.41"></span><span style="left:71.10%;top:99.94%;width:1.1px;height:1.1px;opacity:0.35"></span><span style="left:66.70%;top:46.58%;width:0.9px;height:0.9px;opacity:0.65"></span><span style="left:58.17%;top:84.53%;width:0.7px;height:0.7px;opacity:0.73"></span><span style="left:11.95%;top:83.30%;width:1.2px;height:1.2px;opacity:0.32"></span><span style="left:70.35%;top:55.11%;width:0.8px;height:0.8px;opacity:0.70"></span><span style="left:78.73%;top:37.73%;width:1.0px;height:1.0px;opacity:0.65"></span><span style="left:61.64%;top:20.86%;width:1.7px;height:1.7px;opacity:0.26"></span><span style="left:2.38%;top:87.06%;width:0.6px;height:0.6px;opacity:0.38"></span><span style="left:94.13%;top:94.16%;width:1.8px;height:1.8px;opacity:0.42"></span><span style="left:47.41%;top:64.63%;width:0.8px;height:0.8px;opacity:0.72"></span><span style="left:64.98%;top:37.79%;width:2.0px;height:2.0px;opacity:0.46"></span><span style="left:25.60%;top:98.18%;width:1.3px;height:1.3px;opacity:0.33"></span><span style="left:6.26%;top:34.66%;width:1.6px;height:1.6px;opacity:0.49"></span><span style="left:91.16%;top:93.34%;width:0.7px;height:0.7px;opacity:0.38"></span><span style="left:52.18%;top:97.98%;width:1.8px;height:1.8px;opacity:0.50"></span><span style="left:27.02%;top:56.75%;width:0.7px;height:0.7px;opacity:0.42"></span><span style="left:97.48%;top:86.31%;width:1.1px;height:1.1px;opacity:0.48"></span><span style="left:71.53%;top:55.19%;width:1.1px;height:1.1px;opacity:0.73"></span><span style="left:80.43%;top:14.51%;width:2.1px;height:2.1px;opacity:0.46"></span><span style="left:29.64%;top:42.73%;width:1.4px;height:1.4px;opacity:0.45"></span><span style="left:85.91%;top:31.86%;width:1.7px;height:1.7px;opacity:0.34"></span><span style="left:9.90%;top:15.57%;width:1.0px;height:1.0px;opacity:0.32"></span><span style="left:44.07%;top:23.69%;width:0.7px;height:0.7px;opacity:0.28"></span><span style="left:11.42%;top:90.24%;width:1.1px;height:1.1px;opacity:0.30"></span><span style="left:20.76%;top:40.45%;width:1.1px;height:1.1px;opacity:0.46"></span><span style="left:89.19%;top:38.09%;width:2.2px;height:2.2px;opacity:0.68"></span><span style="left:77.83%;top:12.61%;width:2.1px;height:2.1px;opacity:0.35"></span><span style="left:65.41%;top:8.94%;width:1.5px;height:1.5px;opacity:0.42"></span><span style="left:70.54%;top:95.85%;width:0.9px;height:0.9px;opacity:0.60"></span><span style="left:62.95%;top:55.23%;width:0.7px;height:0.7px;opacity:0.40"></span><span style="left:67.26%;top:80.38%;width:1.9px;height:1.9px;opacity:0.54"></span><span style="left:89.55%;top:66.87%;width:1.1px;height:1.1px;opacity:0.43"></span><span style="left:9.10%;top:32.47%;width:1.3px;height:1.3px;opacity:0.26"></span><span style="left:1.18%;top:82.18%;width:1.6px;height:1.6px;opacity:0.34"></span><span style="left:87.85%;top:77.66%;width:0.8px;height:0.8px;opacity:0.71"></span><span style="left:85.69%;top:36.67%;width:1.5px;height:1.5px;opacity:0.44"></span><span style="left:99.19%;top:49.01%;width:1.9px;height:1.9px;opacity:0.53"></span><span style="left:17.99%;top:61.32%;width:1.9px;height:1.9px;opacity:0.67"></span><span style="left:98.56%;top:33.84%;width:2.0px;height:2.0px;opacity:0.68"></span><span style="left:37.17%;top:63.64%;width:2.2px;height:2.2px;opacity:0.39"></span><span style="left:90.69%;top:11.16%;width:2.1px;height:2.1px;opacity:0.42"></span><span style="left:84.11%;top:64.02%;width:1.2px;height:1.2px;opacity:0.48"></span><span style="left:31.93%;top:78.42%;width:1.8px;height:1.8px;opacity:0.28"></span><span style="left:24.57%;top:66.60%;width:1.2px;height:1.2px;opacity:0.60"></span><span style="left:41.90%;top:93.60%;width:2.0px;height:2.0px;opacity:0.33"></span><span style="left:14.23%;top:20.53%;width:1.6px;height:1.6px;opacity:0.54"></span><span style="left:39.96%;top:38.68%;width:0.7px;height:0.7px;opacity:0.58"></span><span style="left:77.95%;top:51.81%;width:1.0px;height:1.0px;opacity:0.58"></span><span style="left:50.54%;top:76.48%;width:1.6px;height:1.6px;opacity:0.47"></span><span style="left:66.85%;top:70.88%;width:1.0px;height:1.0px;opacity:0.51"></span><span style="left:95.77%;top:30.98%;width:1.3px;height:1.3px;opacity:0.38"></span></div>
+  <div class="banner">Read-only snapshot, paper trading only; generated Tuesday, Nov 17, 2026, 7:15 PM (America/Phoenix)</div>
+  <div class="wrap">
+    <header class="hero">
+      <p class="brand">GALACTIC OPERATOR CONSOLE</p>
+      <h1>JEV</h1>
+      <p class="lede">A read-only snapshot of the Jev crypto trading system: the interpreted design, honest backtest, safety limits, paper-runner status, and the Stellar live path — which stays locked.</p>
+      <div class="pills">
+        <span class="chip paper">PAPER TRADING ONLY</span>
+        <span class="chip lock">LIVE LOCKED</span>
+        <span class="chip fail">BACKTEST FAILED</span>
+        <span class="chip">NO LIVE CONTROLS ON THIS PAGE</span>
+      </div>
+    </header>
+    <nav>
+      <a href="#source">Source</a>
+      <a href="#design">Design</a>
+      <a href="#backtest">Backtest</a>
+      <a href="#safety">Safety</a>
+      <a href="#paper">Paper runner</a>
+      <a href="#stellar">Stellar route</a>
+    </nav>
+
+    <section id="source">
+      <div class="panel">
+        <h2>SOURCE AND INTERPRETATION</h2>
+        <div class="callout amber">
+          <p>Every scanner, analyst, entry, and exit rule on this page is <strong>our interpretation</strong> of a <a href="https://www.instagram.com/reel/DfYu7KTPZ5w/">seb.ai Instagram reel</a> that described a three-part setup (a coin scanner, six analysis bots, and a 24/7 terminal) but <strong>gave no indicators, timeframes, entry or exit rules, stops, or position sizing</strong>.</p>
+        </div>
+        <p>The reel’s marketing claims — including turning $1,000 into $101,607 in 10 days, and $14,911 from seven trades on day 10 after scanning 86 coins — are <strong>unverified</strong>. They are not used as targets or as evidence of an edge. The “comment GROKBOT for the guide” pattern is a common lead-in to paid funnels; this snapshot is not that guide.</p>
+        <p class="muted">A different public meaning of “Jev” (TypeSafe AI’s System One model) was also reviewed. It is not what the reel specified, and this snapshot does not implement or call that hosted model.</p>
+      </div>
+    </section>
+
+    <section id="design">
+      <div class="panel">
+        <h2>JEV DESIGN (OUR INTERPRETATION)</h2>
+        <p>The system scans a universe of coins each 4-hour bar, ranks the top 3 names that clear a liquidity filter, and trades only when the six deterministic analyst modules reach a net consensus of ±3 or more. Modules are rule-based (not live language-model calls) so the backtest is reproducible. Shorts are allowed.</p>
+        <div class="facts">
+          <div class="fact"><span>Scanner</span><b>Top 3 liquid names</b></div>
+          <div class="fact"><span>Consensus</span><b>±3 of 6 votes</b></div>
+          <div class="fact"><span>Stop / target</span><b>2.0 / 3.0 × ATR</b></div>
+          <div class="fact"><span>Risk per trade</span><b>0.5% (cap 1%)</b></div>
+          <div class="fact"><span>Time stop</span><b>48 bars (~8 days)</b></div>
+          <div class="fact"><span>Max open</span><b>3 positions</b></div>
+        </div>
+        <h3>Scanner</h3>
+        <p>Ranks coins on trend, momentum, volatility quality, volume burst, and liquidity. A name must show about $5M of typical daily volume to be eligible. The reel mentioned ~86 coins on one day; local 4-hour history covers these 20 only: BTC/USDT, ETH/USDT, SOL/USDT, XRP/USDT, DOGE/USDT, BNB/USDT, ADA/USDT, AVAX/USDT, LINK/USDT, LTC/USDT, BCH/USDT, DOT/USDT, NEAR/USDT, UNI/USDT, AAVE/USDT, SUI/USDT, ARB/USDT, CRV/USDT, WLD/USDT, PEPE/USDT. Source mentioned ~86 coins; local 4h history covers these 20 only.</p>
+        <h3>Six analyst modules</h3>
+        <div class="mods"><article class='mod'><h3>Trend</h3><p>EMA 20 / 50 / SMA 200 stacked, with ADX above 20 required for a vote.</p></article>
+<article class='mod'><h3>Momentum</h3><p>RSI, 10-bar rate of change, and MACD histogram must agree (at least two of three).</p></article>
+<article class='mod'><h3>Mean reversion</h3><p>RSI under 30 or a close below the lower Bollinger band votes long; the opposite votes short.</p></article>
+<article class='mod'><h3>Volume / flow proxy</h3><p>A volume burst (1.5× the 20-bar average) plus a close near the high or low. This is a candle proxy, not true order flow.</p></article>
+<article class='mod'><h3>Funding / derivatives</h3><p>Fade crowded funding beyond ±0.03%. On Stellar this module votes 0 (no perpetual funding).</p></article>
+<article class='mod'><h3>Volatility / regime</h3><p>Votes with the trend only when the market is not in a volatility crisis (ATR vs its median) and ADX is not weak.</p></article></div>
+        <h3 style="margin-top:18px">Entries, exits, and risk</h3>
+        <p>A trade is opened only if the net vote is at least +3 (long) or −3 (short). Every trade has a mandatory stop at 2.0× ATR and a take-profit at 3.0× ATR. A position also exits on a consensus flip (net vote of ±2 against it) or after 48 bars. Default risk is 0.5% of equity per trade, with a hard cap of 1%, and a per-trade notional cap of $2,000 on a $10,000 paper book.</p>
+      </div>
+    </section>
+
+    <section id="backtest">
+      <div class="panel">
+        <h2>BACKTEST — JEV INTERPRETED V1</h2>
+        <p class="stamp">FAILED</p>
+        <p>Design and selection used 2021–2023 only. 2024–2025 is the validation (holdout) window. 2026 is already-seen forward data, not a clean holdout. Fees, slippage, and funding match the existing portfolio engine. Starting capital $10,000.</p>
+        <div class="callout">
+          <p>The strategy <strong>fails</strong> the pre-set validation gates. On 2024–2025 it made 95 trades with a 44.2% win rate, a profit factor of 1.13, and a +3.4% return. The gates required a 60% win rate and a 1.3 profit factor.</p>
+        </div>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Metric</th><th>Design 2021–23</th><th>Validate 2024–25</th><th>2026 (seen)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Trades</th><td class='num'>30</td><td class='num'>95</td><td class='num'>162</td></tr>
+              <tr><th>Win rate</th><td class='num'>30.0%</td><td class='num'>44.2%</td><td class='num'>43.2%</td></tr>
+              <tr><th>Profit factor</th><td class='num'>0.60</td><td class='num'>1.13</td><td class='num'>1.09</td></tr>
+              <tr><th>Sharpe</th><td class='num'>-0.74</td><td class='num'>0.40</td><td class='num'>0.58</td></tr>
+              <tr><th>Max drawdown</th><td class='num'>6.0%</td><td class='num'>5.8%</td><td class='num'>6.0%</td></tr>
+              <tr><th>Total return</th><td class='num'>-4.1%</td><td class='num'>+3.4%</td><td class='num'>+4.1%</td></tr>
+              <tr><th>Avg win / loss</th><td class='num'>$69 / -$49</td><td class='num'>$70 / -$49</td><td class='num'>$73 / -$51</td></tr>
+              <tr><th>Longest losing streak</th><td class='num'>6</td><td class='num'>8</td><td class='num'>8</td></tr>
+              <tr><th>Exit reasons</th><td class='num'>stop 19, take profit 8, strategy dd halt 2, time stop 1</td><td class='num'>stop 43, take profit 38, consensus flip 9, strategy dd halt 3, time stop 2</td><td class='num'>stop 82, take profit 67, time stop 7, consensus flip 4, strategy dd halt 2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="two" style="margin-top:20px">
+          <div>
+            <h3>Strategy gates (2024–25 holdout)</h3>
+            <div class="scroll"><table><tbody><tr><th>Win rate ≥ 60%</th><td class='num'>44.2%</td><td><span class="chip fail">FAIL</span></td></tr>
+<tr><th>Profit factor ≥ 1.3</th><td class='num'>1.13</td><td><span class="chip fail">FAIL</span></td></tr>
+<tr><th>Max drawdown ≤ 15%</th><td class='num'>5.8%</td><td><span class="chip pass">PASS</span></td></tr>
+<tr><th>OOS trades ≥ 30</th><td class='num'>95</td><td><span class="chip pass">PASS</span></td></tr>
+<tr><th>PF degradation ≤ 30%</th><td class='num'>OOS PF did not degrade vs design</td><td><span class="chip pass">PASS</span></td></tr>
+<tr><th>Sharpe > 0</th><td class='num'>0.40</td><td><span class="chip pass">PASS</span></td></tr></table></div>
+            <p class="fail-text" style="margin-top:10px">Holdout verdict: FAILED.</p>
+          </div>
+          <div>
+            <h3>Portfolio gates (2024–25)</h3>
+            <div class="scroll"><table><tbody><tr><th>Trades ≥ 200</th><td class='num'>95</td><td><span class="chip fail">FAIL</span></td></tr>
+<tr><th>Win rate ≥ 60%</th><td class='num'>44.2%</td><td><span class="chip fail">FAIL</span></td></tr>
+<tr><th>Profit factor ≥ 1.3</th><td class='num'>1.13</td><td><span class="chip fail">FAIL</span></td></tr>
+<tr><th>Sharpe ≥ 1.0</th><td class='num'>0.40</td><td><span class="chip fail">FAIL</span></td></tr>
+<tr><th>Max drawdown ≤ 15%</th><td class='num'>5.8%</td><td><span class="chip pass">PASS</span></td></tr></table></div>
+            <p class="fail-text" style="margin-top:10px">Portfolio verdict: FAILED.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety">
+      <div class="panel">
+        <h2>AUTONOMY AND SAFETY LIMITS</h2>
+        <p>Paper is the default mode. A test-net path exists but stays unconnected until test keys are present. Real-money (live) mode is hard-locked until an explicit approval file is created and the operator confirms a starting amount. Deposits never turn live trading on by themselves. This public page has no login, no order buttons, and no kill-switch control.</p>
+        <ul class="limits">
+          <li>Mandatory stop-loss on every trade (2× ATR by default)</li>
+          <li>Risk 0.5% per trade, hard cap 1%</li>
+          <li>Max $2,000 notional per trade; $3,000 per coin</li>
+          <li>Max 3 open positions; max 2× gross leverage</li>
+          <li>2% daily loss cap (hard ceiling 3%)</li>
+          <li>Drawdown halt at 12% (hard ceiling 15%)</li>
+          <li>80% of starting-balance hard stop (Stellar path)</li>
+          <li>Max 10 orders per minute</li>
+          <li>Stale-data halt (30s) and repeated-error halt</li>
+          <li>Heartbeat / dead-man switch (30s)</li>
+          <li>Kill switch: cancel open orders and flatten / convert back to XLM</li>
+          <li>Withdrawals (Stellar) only to one pre-approved public address</li>
+        </ul>
+        <p class="muted" style="margin-top:14px">Thirty-three unit and fault-injection tests cover these mode locks, size caps, stops, daily-loss and drawdown halts, stale data, error rate, kill switch, and Stellar sweep-address rules. The trading-account key, if one is ever created, stays only on the trading machine and is never shown or sent. Seed phrases and private keys are never requested or accepted.</p>
+      </div>
+    </section>
+
+    <section id="paper">
+      <div class="panel">
+        <h2>EXISTING PAPER RUNNER AND CARRY V3</h2>
+        <p>The live paper runner in <span class="num">state/paper_live</span> is a separate book from the Jev interpreted strategy. It runs the <strong>validated carry v3</strong> strategy only (funding carry on 12 coins). Jev itself stays in its own paper/runtime path after failing the backtest above.</p>
+        <div class="facts">
+          <div class="fact"><span>Runner</span><b>v3 · RUNNING</b></div>
+          <div class="fact"><span>Equity (last snapshot)</span><b>$10,000</b></div>
+          <div class="fact"><span>Forward trades</span><b>0</b></div>
+          <div class="fact"><span>Open positions</span><b>0</b></div>
+          <div class="fact"><span>Pending orders</span><b>0</b></div>
+          <div class="fact"><span>Breaker trips</span><b>0</b></div>
+        </div>
+        <p>Last recorded snapshot: Saturday, Oct 3, 2026, 6:34 PM (America/Phoenix). Last bar in that snapshot: Saturday, Oct 3, 2026, 1:00 PM (America/Phoenix). 12 bars were seen in the book; equity stayed $10,000 with 0.0% drawdown and no forward trades. That snapshot is from early October 2026 — it is the latest stored state, not a claim that the runner is still advancing as of this page’s generation time.</p>
+        <h3>Carry v3 — validated on 2024–25, with an honest caveat</h3>
+        <p>VALIDATED (passed OOS 2024-25 strategy gates; stress: fails only combined 2x costs+50% funding haircut+2-bar delay)</p>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Period</th><th>Trades</th><th>Win</th><th>PF</th><th>Sharpe</th><th>Max DD</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <tr><th>Design 2021–23</th><td class="num">48</td><td class="num">58.3%</td><td class="num">5.62</td><td class="num">4.00</td><td class="num">0.9%</td><td>selected</td></tr>
+              <tr><th>Validate 2024–25</th><td class="num">84</td><td class="num">88.1%</td><td class="num">28.5</td><td class="num">7.14</td><td class="num">0.42%</td><td><span class="chip pass">PASS</span> all 6 strategy gates</td></tr>
+              <tr><th>2026 (seen)</th><td class="num">6</td><td class="num">66.7%</td><td class="num">1.83</td><td class="num">0.34</td><td class="num">0.39%</td><td>low funding in 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted" style="margin-top:12px">OOS P&amp;L came mostly from Hyperliquid alt funding in 2024 (funding about +$2,998; basis −$529; fees −$406; net +$2,063 on $10k). 2025 was weaker. Combined stress (2× costs + 50% funding cut + 2-bar delay) fails (PF 0.89, 37% win). The 200-trade portfolio gate is also not met (84 trades). Round 4 tried to expand the coin universe and <strong>failed</strong> its pre-registered combined-stress gate on the new coins (PF 0.68) and still missed 200 trades; the runner was left on v3 and was not changed.</p>
+      </div>
+    </section>
+
+    <section id="stellar">
+      <div class="panel">
+        <h2>STELLAR ROUTE — LIVE LOCKED</h2>
+        <div class="callout amber">
+          <p><strong>Live Stellar trading is locked.</strong> The recommended path is a dedicated trading account that holds only the $50–$100 you choose to risk. Profits and leftovers can be swept back only to one public address you provide. Your main wallet’s seed phrase is never requested. Coinbase / Kraken remains an optional parallel deposit path, also approval-gated.</p>
+        </div>
+        <p>Trading uses Stellar’s built-in exchange and the official USDC/XLM liquidity pool (Circle issuer only). SDEX has no native stop-loss, so stops, the 2% daily cap, the drawdown halt, the 80% starting-balance hard stop, the order-rate cap, stale-data and error halts, and the kill switch are enforced by the engine. The kill switch cancels offers and converts leftover official USDC back to XLM.</p>
+        <h3>Paper session (unsigned, public mainnet data)</h3>
+        <p>A paper session read public Horizon data and did not sign anything. Halted: no. It discovered the official USDC/XLM AMM (about 11,605,884 XLM and 1,624,725 USDC, ~$3,244,774 depth, 30 bp fee) and walked five cycles on XLM/USDC. Net votes were short of consensus, so every cycle decided to hold:</p>
+        <div class="scroll"><table>
+          <thead><tr><th>Cycle</th><th>Pair</th><th>Mid</th><th>Net vote</th><th>Decision</th></tr></thead>
+          <tbody><tr><td class='num'>1</td><td>XLM/USDC</td><td class='num'>0.13960</td><td class='num'>-2</td><td><span class='chip paper'>HOLD</span></td></tr>
+<tr><td class='num'>2</td><td>XLM/USDC</td><td class='num'>0.13964</td><td class='num'>-2</td><td><span class='chip paper'>HOLD</span></td></tr>
+<tr><td class='num'>3</td><td>XLM/USDC</td><td class='num'>0.13964</td><td class='num'>-2</td><td><span class='chip paper'>HOLD</span></td></tr>
+<tr><td class='num'>4</td><td>XLM/USDC</td><td class='num'>0.13963</td><td class='num'>-2</td><td><span class='chip paper'>HOLD</span></td></tr>
+<tr><td class='num'>5</td><td>XLM/USDC</td><td class='num'>0.13968</td><td class='num'>-1</td><td><span class='chip paper'>HOLD</span></td></tr></tbody>
+        </table></div>
+        <h3 style="margin-top:18px">Testnet smoke</h3>
+        <p>The testnet smoke test passed. It created a testnet trading account and funded it via Friendbot; placed a small XLM/USDC offer; kill switch converted leftover official USDC back to XLM; a sweep-address change without a fresh confirmation was refused; a sweep to any address other than the one approved address was refused. No trading-account addresses, sweep addresses, or transaction identifiers are published on this page.</p>
+        <p class="warn">Funding a live account is not enabled from this snapshot. Keep improving the Jev rules on paper until they pass the gates before considering real funds.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Public read-only snapshot of the Jev console. It does not connect to any exchange or wallet, does not accept keys, and cannot place, cancel, or approve trades. Generated Tuesday, Nov 17, 2026, 7:15 PM (America/Phoenix).</p>
+    </footer>
+  </div>
+</body>
+</html>
